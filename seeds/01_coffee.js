@@ -5,24 +5,27 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('coffee').insert([
-        { id: 1, 
+        { 
+          id: 1, 
           name: 'Black and Tan',
           roaster: 'Ink',
-          aroma: '3'
+          aroma: 3
         },
         {
           id: 2, 
           name: 'Holiday Roast',
           roaster: 'Starbucks',
-          aroma:'9'
+          aroma: 9
         },
         {
           id: 3, 
           name: 'House Quake',
           roaster: 'Denver Coffee',
-          aroma: '6'}
+          aroma: 6
+        }
       ]);
-    });.then(() => {
+    })
+      .then(() => {
           return knex.raw('ALTER SEQUENCE coffee_id_seq RESTART WITH 4;');
     });
 };
